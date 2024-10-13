@@ -15,7 +15,7 @@ const initialCenter = {
 
 export default function MapApp() {
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: 'AIzaSyAzv2unIb8vraWY1BY97h1rZNiWDbLkf0s', // Reemplaza con tu clave de API
+    googleMapsApiKey: 'fdsafdasfasdfdasfdasfdsafdas', // Reemplaza con tu clave de API
   });
 
   const [marker, setMarker] = useState(null); // Usamos solo un marcador
