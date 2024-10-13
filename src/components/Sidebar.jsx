@@ -1,29 +1,74 @@
-import React from 'react';
-import { Home, Users, Cat, LogOut } from 'lucide-react';
+import React, { useState } from 'react';
+import { Users, PawPrint, Home, LogOut, ChevronDown } from "lucide-react";
 
-export default function Sidebar() {
+export default function Sidebar({ onOptionSelect }) {
+  const [clientesOpen, setClientesOpen] = useState(false);
+  const [mascotasOpen, setMascotasOpen] = useState(false);
+
   return (
-    <div className="w-64 bg-gray-900 text-white h-full shadow-md">
+    <aside className="bg-white w-64 shadow-md h-screen sticky top-0">
       <div className="p-4">
-        <h2 className="text-2xl font-bold mb-8 flex items-center">
-          <Cat className="mr-2" />
-          AGATHA
-        </h2>
-        <nav className="space-y-2">
-          <a href="/" className="flex items-center py-2 px-4 hover:bg-gray-700 rounded">
-            <Home className="mr-2" /> Inicio
-          </a>
-          <a href="/clients" className="flex items-center py-2 px-4 hover:bg-gray-700 rounded">
-            <Users className="mr-2" /> Clientes
-          </a>
-          <a href="/pets" className="flex items-center py-2 px-4 hover:bg-gray-700 rounded">
-            <Cat className="mr-2" /> Mascotas
-          </a>
-          <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-700 rounded">
-            <LogOut className="mr-2" /> Cerrar Sesión
-          </a>
-        </nav>
+        <h2 className="text-2xl font-bold">Hola</h2>
       </div>
-    </div>
+      <nav className="mt-6">
+        <div className="px-4 py-2">
+          <button 
+            onClick={() => onOptionSelect('home')}  // Cambio a Home
+            className="flex items-center text-gray-700 hover:bg-gray-200"
+          >
+            <Home className="mr-3" size={20} />
+            Inicio
+          </button>
+        </div>
+        <div className="px-4 py-2">
+          <button 
+            onClick={() => setClientesOpen(!clientesOpen)} 
+            className="flex items-center w-full text-left text-gray-700 hover:bg-gray-200"
+          >
+            <Users className="mr-3" size={20} />
+            Clientes
+            <ChevronDown className={`ml-auto transform ${clientesOpen ? 'rotate-180' : ''}`} size={16} />
+          </button>
+          {clientesOpen && (
+            <div className="ml-7 mt-2">
+              <button 
+                onClick={() => onOptionSelect('nuevo-cliente')}
+                className="block py-1 text-gray-600 hover:text-gray-800"
+              >
+                Agregar
+              </button>
+              <button 
+                onClick={() => onOptionSelect('crud-clientes')}
+                className="block py-1 text-gray-600 hover:text-gray-800"
+              >
+                Todos
+              </button>
+            </div>
+          )}
+        </div>
+        <div className="px-4 py-2">
+          <button 
+            onClick={() => setMascotasOpen(!mascotasOpen)} 
+            className="flex items-center w-full text-left text-gray-700 hover:bg-gray-200"
+          >
+            <PawPrint className="mr-3" size={20} />
+            Mascotas
+            <ChevronDown className={`ml-auto transform ${mascotasOpen ? 'rotate-180' : ''}`} size={16} />
+          </button>
+          {mascotasOpen && (
+            <div className="ml-7 mt-2">
+              <button className="block py-1 text-gray-600 hover:text-gray-800">Todas</button>
+              <button className="block py-1 text-gray-600 hover:text-gray-800">Mis Mascotas</button>
+            </div>
+          )}
+        </div>
+        <div className="px-4 py-2">
+          <button className="flex items-center text-gray-700 hover:bg-gray-200">
+            <LogOut className="mr-3" size={20} />
+            Cerrar Sesión
+          </button>
+        </div>
+      </nav>
+    </aside>
   );
 }

@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import './Login.css';  // Asegúrate de crear este archivo CSS con los estilos
+import './Login.css';  // Asegúrate de tener los estilos en este archivo
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
-  const navigate = useNavigate();
+  const { login } = useAuth();  // Usamos el contexto de autenticación
+  const navigate = useNavigate();  // Para redirigir al dashboard
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const success = await login(username, password);
     if (success) {
-      navigate('/dashboard'); // Redirigir al dashboard
+      navigate('/dashboard');  // Redirigir al dashboard si el login es correcto
     } else {
       alert('Credenciales incorrectas');
     }

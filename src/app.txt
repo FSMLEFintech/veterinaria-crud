@@ -1,0 +1,23 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';  // Ya no necesitamos 'Navigate' si estamos eliminando la redirección al login
+// import Login from './pages/Login';  // Comentamos el Login por ahora
+import Dashboard from './pages/Dashboard';
+// import PrivateRoute from './components/PrivateRoute';  // Comentamos la ruta privada
+import './index.css';
+
+function App() {
+  return (
+    <Routes>
+      {/* Eliminamos temporalmente la ruta del login */}
+      {/* <Route path="/login" element={<Login />} /> */}
+      
+      {/* Hacemos que el Dashboard sea accesible directamente */}
+      <Route path="/dashboard" element={<Dashboard />} />
+      
+      {/* Ruta por defecto que redirige al dashboard */}
+      <Route path="*" element={<Dashboard />} /> {/* Redirige siempre al dashboard */}
+    </Routes>
+  );
+}
+
+export default App;
