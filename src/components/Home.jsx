@@ -1,4 +1,6 @@
 import React from 'react';
+import agregar from '../assets/images/agregar.png';
+import todos from '../assets/images/todos.png';
 
 const Home = () => {
   return (
@@ -20,19 +22,19 @@ const Home = () => {
       {/* Cuadro de opciones principales */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col items-center hover:scale-105 transition-transform duration-300">
-          <img src="cat_add.png" alt="Agregar" className="w-32 h-auto mb-4" />
+          <img src={agregar} alt="Agregar" className="w-32 h-auto mb-4" />
           <button className="bg-teal-500 text-white py-3 px-6 w-full rounded-lg">AGREGAR</button>
         </div>
         <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col items-center hover:scale-105 transition-transform duration-300">
-          <img src="cat_all.png" alt="Todos" className="w-32 h-auto mb-4" />
+          <img src={todos} alt="Todos" className="w-32 h-auto mb-4" />
           <button className="bg-purple-600 text-white py-3 px-6 w-full rounded-lg">TODOS</button>
         </div>
         <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col items-center hover:scale-105 transition-transform duration-300">
-          <img src="cat_mine.png" alt="Míos" className="w-32 h-auto mb-4" />
+          <img src={agregar} alt="Míos" className="w-32 h-auto mb-4" />
           <button className="bg-purple-600 text-white py-3 px-6 w-full rounded-lg">MÍOS</button>
         </div>
         <div className="bg-white shadow-lg rounded-xl p-6 flex flex-col items-center hover:scale-105 transition-transform duration-300">
-          <img src="cat_surgery.png" alt="Cirugía" className="w-32 h-auto mb-4" />
+          <img src={todos} alt="Cirugía" className="w-32 h-auto mb-4" />
           <button className="bg-purple-600 text-white py-3 px-6 w-full rounded-lg">CIRUGÍA</button>
         </div>
       </div>

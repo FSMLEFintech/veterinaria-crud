@@ -13,7 +13,7 @@ export default function Sidebar({ onOptionSelect }) {
       <nav className="mt-6">
         <div className="px-4 py-2">
           <button 
-            onClick={() => onOptionSelect('home')}  // Cambio a Home
+            onClick={() => onOptionSelect('home')}
             className="flex items-center text-gray-700 hover:bg-gray-200"
           >
             <Home className="mr-3" size={20} />
@@ -57,8 +57,18 @@ export default function Sidebar({ onOptionSelect }) {
           </button>
           {mascotasOpen && (
             <div className="ml-7 mt-2">
-              <button className="block py-1 text-gray-600 hover:text-gray-800">Todas</button>
-              <button className="block py-1 text-gray-600 hover:text-gray-800">Mis Mascotas</button>
+              <button 
+                onClick={() => onOptionSelect('todas-mascotas')}
+                className="block py-1 text-gray-600 hover:text-gray-800"
+              >
+                Todas
+              </button>
+              <button 
+                onClick={() => onOptionSelect('mis-mascotas')}
+                className="block py-1 text-gray-600 hover:text-gray-800"
+              >
+                Mis Mascotas
+              </button>
             </div>
           )}
         </div>
